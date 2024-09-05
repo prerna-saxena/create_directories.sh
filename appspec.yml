@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: /        # The source path (relative to the artifact root)
+    destination: /var/www/html  # The destination path on the instance
+
+hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
