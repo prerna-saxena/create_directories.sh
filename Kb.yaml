@@ -1,0 +1,22 @@
+Kubernetes Configuration
+Create Kubernetes manifests for deployment and service.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+spec:
+  replicas: 3  # Adjust this number based on your scaling needs
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: myregistry/myapp:latest
+        ports:
+        - containerPort: 8080
